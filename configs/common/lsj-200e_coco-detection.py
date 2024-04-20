@@ -2,7 +2,7 @@ _base_ = './lsj-100e_coco-detection.py'
 
 # 8x25=200e
 train_dataloader = dict(dataset=dict(times=8))
-
+print('ddddddddddddddddddddddddddddd')
 # learning rate
 param_scheduler = [
     dict(

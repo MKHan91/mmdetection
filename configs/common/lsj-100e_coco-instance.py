@@ -3,7 +3,7 @@ _base_ = '../_base_/default_runtime.py'
 dataset_type = 'CocoDataset'
 data_root = 'data/coco/'
 image_size = (1024, 1024)
-
+print("_-----------------------------data/coco/annotations")
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
 # automatically infer from prefix (not support LMDB and Memcache yet)

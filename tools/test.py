@@ -19,22 +19,24 @@ from mmdet.utils import setup_cache_size_limit_of_dynamo
 def parse_args():
     parser = argparse.ArgumentParser(
         description='MMDet test (and eval) a model')
-    parser.add_argument('config', help='test config file path')
-    parser.add_argument('checkpoint', help='checkpoint file')
+    parser.add_argument('--config', help='test config file path', default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\configs\fcos\fcos_r50-caffe_fpn_gn-head_1x_coco.py')
+    parser.add_argument('--checkpoint', help='checkpoint file', default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco\epoch_12.pth')
     parser.add_argument(
         '--work-dir',
-        help='the directory to save the file containing evaluation metrics')
+        help='the directory to save the file containing evaluation metrics',
+        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco')
     parser.add_argument(
         '--out',
         type=str,
         help='dump predictions to a pickle file for offline evaluation')
     parser.add_argument(
-        '--show', action='store_true', help='show prediction results')
+        '--show', action='store_true', help='show prediction results', default=True)
     parser.add_argument(
         '--show-dir',
         help='directory where painted images will be saved. '
         'If specified, it will be automatically saved '
-        'to the work_dir/timestamp/show_dir')
+        'to the work_dir/timestamp/show_dir',
+        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco\20240420_113441\vis_data')
     parser.add_argument(
         '--wait-time', type=float, default=2, help='the interval of show (s)')
     parser.add_argument(

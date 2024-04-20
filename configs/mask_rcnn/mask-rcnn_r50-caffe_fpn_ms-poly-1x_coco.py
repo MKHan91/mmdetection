@@ -13,7 +13,8 @@ model = dict(
             type='Pretrained',
             checkpoint='open-mmlab://detectron2/resnet50_caffe')))
 train_pipeline = [
-    dict(type='LoadImageFromFile', backend_args={{_base_.backend_args}}),
+    # dict(type='LoadImageFromFile', backend_args={{_base_.backend_args}}),
+    dict(type='LoadImageFromFile', backend_args=dict(data_root='')),
     dict(
         type='LoadAnnotations',
         with_bbox=True,

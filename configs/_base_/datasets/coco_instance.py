@@ -1,7 +1,7 @@
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = 'data/coco/'
-
+# data_root = 'data/coco/'
+data_root = r'D:\CUSTOM\ObjectDetection\DATASET\Bsc- Train_C1toC5.v2i.coco-mmdetection'
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
 # automatically infer from prefix (not support LMDB and Memcache yet)
@@ -43,8 +43,9 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='annotations/instances_train2017.json',
-        data_prefix=dict(img='train2017/'),
+        # ann_file='annotations/instances_train2017.json',
+        ann_file=r'D:\CUSTOM\ObjectDetection\DATASET\Bsc- Train_C1toC5.v2i.coco-mmdetection\train\_annotations.coco.json',
+        data_prefix=dict(img='train\\'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
         backend_args=backend_args))
@@ -57,8 +58,9 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='annotations/instances_val2017.json',
-        data_prefix=dict(img='val2017/'),
+        # ann_file='annotations/instances_val2017.json',
+        ann_file=r'D:\CUSTOM\ObjectDetection\DATASET\Bsc- Train_C1toC5.v2i.coco-mmdetection\valid\_annotations.coco.json',
+        data_prefix=dict(img='val\\'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
@@ -66,7 +68,7 @@ test_dataloader = val_dataloader
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/instances_val2017.json',
+    ann_file=data_root + r'\valid\_annotations.coco.json',
     metric=['bbox', 'segm'],
     format_only=False,
     backend_args=backend_args)
