@@ -14,7 +14,7 @@ train_pipeline = [
 train_dataloader = dict(dataset=dict(pipeline=train_pipeline))
 
 # training schedule for 2x
-max_epochs = 24
+max_epochs = 80
 train_cfg = dict(max_epochs=max_epochs)
 
 # learning rate

@@ -13,9 +13,9 @@ from mmdet.utils import setup_cache_size_limit_of_dynamo
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')
     parser.add_argument('--config', help='train config file path', 
-                        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\configs\fcos\fcos_r50-caffe_fpn_gn-head_1x_coco.py')
+                        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\configs\fcos\fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco.py')
     parser.add_argument('--work_dir', help='the dir to save logs and models',
-                        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco_2')
+                        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco_2')
                         
     parser.add_argument(
         '--amp',
