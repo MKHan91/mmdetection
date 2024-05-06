@@ -1,6 +1,7 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import argparse
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 import os.path as osp
 import warnings
 from copy import deepcopy
@@ -19,24 +20,25 @@ from mmdet.utils import setup_cache_size_limit_of_dynamo
 def parse_args():
     parser = argparse.ArgumentParser(
         description='MMDet test (and eval) a model')
-    parser.add_argument('--config', help='test config file path', default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\configs\fcos\fcos_r50-caffe_fpn_gn-head_1x_coco.py')
-    parser.add_argument('--checkpoint', help='checkpoint file', default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco\epoch_12.pth')
+    parser.add_argument('--config', help='test config file path', default=r'/data/home/jeongyeon/mmdetection/configs/fcos/fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco.py')
+    parser.add_argument('--checkpoint', help='checkpoint file', default=r'/data/home/jeongyeon/mmdetection/logs/fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco_2/epoch_80.pth')
     parser.add_argument(
         '--work-dir',
         help='the directory to save the file containing evaluation metrics',
-        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco')
+        default=r'/data/home/jeongyeon/mmdetection/logs/fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco_2')
     parser.add_argument(
         '--out',
         type=str,
-        help='dump predictions to a pickle file for offline evaluation')
+        help='dump predictions to a pickle file for offline evaluation',
+        default=r'/data/home/jeongyeon/mmdetection/logs/fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco_2.pkl')
     parser.add_argument(
-        '--show', action='store_true', help='show prediction results', default=True)
+        '--show', action='store_true', help='show prediction results', default=False)
     parser.add_argument(
         '--show-dir',
         help='directory where painted images will be saved. '
         'If specified, it will be automatically saved '
         'to the work_dir/timestamp/show_dir',
-        default=r'G:\내 드라이브\Outsourcing\ObjectDetection\BSC\mmdetection\logs\fcos_r50-caffe_fpn_gn-head_1x_coco\20240420_113441\vis_data')
+        default=r'/data/home/jeongyeon/mmdetection/logs/fcos_r50-caffe_fpn_gn-head_ms-640-800-2x_coco_2/20240506_164500/ps_c1c5_result_images')
     parser.add_argument(
         '--wait-time', type=float, default=2, help='the interval of show (s)')
     parser.add_argument(
